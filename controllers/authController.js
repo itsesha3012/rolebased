@@ -1,12 +1,12 @@
 import User from "../models/user.js";
 import jwt from "jsonwebtoken";
 
-// Generate JWT
+                    // Generate JWT
 const generateToken = (id, role) => {
   return jwt.sign({ id, role }, "your_jwt_secret", { expiresIn: "1h" });
 };
 
-// Login
+                                           // Login
 export const login = async (req, res) => {
   const { email, password } = req.body;
 

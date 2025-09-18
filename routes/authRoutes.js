@@ -7,16 +7,16 @@ const router = express.Router();
 // Login route
 router.post("/login", login);
 
-// Sample protected routes
-router.get("/admin-only",  authorizeRoles("Admin"), (req, res) => {
+ 
+router.get("/admin-only",  protect,authorizeRoles("Admin"), (req, res) => {
   res.json({ message: `Welcome Admin ${req.user.name}` });
 });
 
-router.get("/merchant-only",  authorizeRoles("Merchant"), (req, res) => {
+router.get("/merchant-only",protect , authorizeRoles("Merchant"), (req, res) => {
   res.json({ message: `Welcome Merchant ${req.user.name}` });
 });
 
-router.get("/user-only", authorizeRoles("User"), (req, res) => {
+router.get("/user-only",protect, authorizeRoles("User"), (req, res) => {
   res.json({ message: `Welcome User ${req.user.name}` });
 });
 
